@@ -8,10 +8,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 # Set variables for the GPIO motor pins
-pinMotorAForwards = 10
-pinMotorABackwards = 9
-pinMotorBForwards = 7
-pinMotorBBackwards = 8
+pinMotorAForwards = 9
+pinMotorABackwards = 10
+pinMotorBForwards = 8
+pinMotorBBackwards = 7
 pinLineFollower = 25
 
 # Set the GPIO Pin mode
