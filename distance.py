@@ -54,7 +54,7 @@ try:
         # That was the distance there and back so halve the value
         Distance = Distance / 2
         
-        print("Distance: %.1f cm" % Distance)
+        print("-en \rDistance: %.1f cm" % Distance)
         
         time.sleep(0.5)
         
