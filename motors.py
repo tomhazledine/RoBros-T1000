@@ -56,6 +56,8 @@ def Right():
     GPIO.output(pinMotorBForwards, 0)
     GPIO.output(pinMotorBBackwards, 1)
 
+
+
 # Forwards()
 # time.sleep(1)
 
@@ -79,10 +81,10 @@ try:
         print(GPIO.input(pinLineFollower))
         if GPIO.input(pinLineFollower)==0:
             StopMotors()
-            print('The sensor is seeing a black surface')
+            Left()
+            print('\r Scanning...')
         else:
             Forwards()
-            print('The sensor is seeing a white surface')
         time.sleep(0.2)
 
 except KeyboardInterrupt:
