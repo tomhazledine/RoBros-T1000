@@ -78,13 +78,14 @@ def Right():
 try:
     # Repeat:
     while True:
-        print(GPIO.input(pinLineFollower))
+        # print(GPIO.input(pinLineFollower))
         if GPIO.input(pinLineFollower)==0:
-            StopMotors()
+            # StopMotors()
             Left()
             print('\r Scanning...')
         else:
-            Forwards()
+            StopMotors()
+            # Forwards()
         time.sleep(0.2)
 
 except KeyboardInterrupt:
