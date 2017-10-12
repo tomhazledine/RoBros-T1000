@@ -17,7 +17,8 @@ pinLineFollower = 25
 # How many times to turn the pin on and off each second
 Frequency = 20
 # How long the pin stays on each cycle, as a percent (here, it's 30%)
-DutyCycle = 15
+DutyCycleA = 18
+DutyCycleB = 10
 # Setting the duty cycle to 0 means the motors will not turn
 Stop = 0
 
@@ -54,9 +55,9 @@ def Forwards():
     # GPIO.output(pinMotorABackwards, 0)
     # GPIO.output(pinMotorBForwards, 1)
     # GPIO.output(pinMotorBBackwards, 0)
-    pwmMotorAForwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorAForwards.ChangeDutyCycle(DutyCycleA)
     pwmMotorABackwards.ChangeDutyCycle(Stop)
-    pwmMotorBForwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorBForwards.ChangeDutyCycle(DutyCycleB)
     pwmMotorBBackwards.ChangeDutyCycle(Stop)
 
 # Turn both motors backwards
@@ -66,9 +67,9 @@ def Backwards():
     # GPIO.output(pinMotorBForwards, 0)
     # GPIO.output(pinMotorBBackwards, 1)
     pwmMotorAForwards.ChangeDutyCycle(Stop)
-    pwmMotorABackwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorABackwards.ChangeDutyCycle(DutyCycleA)
     pwmMotorBForwards.ChangeDutyCycle(Stop)
-    pwmMotorBBackwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorBBackwards.ChangeDutyCycle(DutyCycleB)
 
 # Turn left
 def Left():
@@ -77,8 +78,8 @@ def Left():
     # GPIO.output(pinMotorBForwards, 1)
     # GPIO.output(pinMotorBBackwards, 0)
     pwmMotorAForwards.ChangeDutyCycle(Stop)
-    pwmMotorABackwards.ChangeDutyCycle(DutyCycle)
-    pwmMotorBForwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorABackwards.ChangeDutyCycle(DutyCycleA)
+    pwmMotorBForwards.ChangeDutyCycle(DutyCycleB)
     pwmMotorBBackwards.ChangeDutyCycle(Stop)
 
 # Turn Right
@@ -87,10 +88,10 @@ def Right():
     # GPIO.output(pinMotorABackwards, 0)
     # GPIO.output(pinMotorBForwards, 0)
     # GPIO.output(pinMotorBBackwards, 1)
-    pwmMotorAForwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorAForwards.ChangeDutyCycle(DutyCycleA)
     pwmMotorABackwards.ChangeDutyCycle(Stop)
     pwmMotorBForwards.ChangeDutyCycle(Stop)
-    pwmMotorBBackwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorBBackwards.ChangeDutyCycle(DutyCycleB)
 
 
 
