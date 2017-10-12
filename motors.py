@@ -14,47 +14,83 @@ pinMotorBForwards = 8
 pinMotorBBackwards = 7
 pinLineFollower = 25
 
+# How many times to turn the pin on and off each second
+Frequency = 20
+# How long the pin stays on each cycle, as a percent (here, it's 30%)
+DutyCycle = 30
+# Setting the duty cycle to 0 means the motors will not turn
+Stop = 0
+
 # Set the GPIO Pin mode
 GPIO.setup(pinMotorBForwards, GPIO.OUT)
 GPIO.setup(pinMotorBBackwards, GPIO.OUT)
 GPIO.setup(pinMotorAForwards, GPIO.OUT)
 GPIO.setup(pinMotorABackwards, GPIO.OUT)
+
 GPIO.setup(pinLineFollower, GPIO.IN)
+
+# Set the GPIO to software PWM at 'Frequency' Hertz
+pwmMotorAForwards = GPIO.PWM(pinMotorAForwards, Frequency)
+pwmMotorABackwards = GPIO.PWM(pinMotorABackwards, Frequency)
+pwmMotorBForwards = GPIO.PWM(pinMotorBForwards, Frequency)
+pwmMotorBBackwards = GPIO.PWM(pinMotorBBackwards, Frequency)
+
+# Start the software PWM with a duty cycle of 0 (i.e. not moving)
+pwmMotorAForwards.start(Stop)
+pwmMotorABackwards.start(Stop)
+pwmMotorBForwards.start(Stop)
+pwmMotorBBackwards.start(Stop)
 
 # Turn all motors off
 def StopMotors():
-    GPIO.output(pinMotorAForwards, 0)
-    GPIO.output(pinMotorABackwards, 0)
-    GPIO.output(pinMotorBForwards, 0)
-    GPIO.output(pinMotorBBackwards, 0)
+    pwmMotorAForwards.ChangeDutyCycle(Stop)
+    pwmMotorABackwards.ChangeDutyCycle(Stop)
+    pwmMotorBForwards.ChangeDutyCycle(Stop)
+    pwmMotorBBackwards.ChangeDutyCycle(Stop)
 
 # Turn both motors forwards
 def Forwards():
-    GPIO.output(pinMotorAForwards, 1)
-    GPIO.output(pinMotorABackwards, 0)
-    GPIO.output(pinMotorBForwards, 1)
-    GPIO.output(pinMotorBBackwards, 0)
+    # GPIO.output(pinMotorAForwards, 1)
+    # GPIO.output(pinMotorABackwards, 0)
+    # GPIO.output(pinMotorBForwards, 1)
+    # GPIO.output(pinMotorBBackwards, 0)
+    pwmMotorAForwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorABackwards.ChangeDutyCycle(Stop)
+    pwmMotorBForwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorBBackwards.ChangeDutyCycle(Stop)
 
 # Turn both motors backwards
 def Backwards():
-    GPIO.output(pinMotorAForwards, 0)
-    GPIO.output(pinMotorABackwards, 1)
-    GPIO.output(pinMotorBForwards, 0)
-    GPIO.output(pinMotorBBackwards, 1)
+    # GPIO.output(pinMotorAForwards, 0)
+    # GPIO.output(pinMotorABackwards, 1)
+    # GPIO.output(pinMotorBForwards, 0)
+    # GPIO.output(pinMotorBBackwards, 1)
+    pwmMotorAForwards.ChangeDutyCycle(Stop)
+    pwmMotorABackwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorBForwards.ChangeDutyCycle(Stop)
+    pwmMotorBBackwards.ChangeDutyCycle(DutyCycle)
 
 # Turn left
 def Left():
-    GPIO.output(pinMotorAForwards, 0)
-    GPIO.output(pinMotorABackwards, 1)
-    GPIO.output(pinMotorBForwards, 1)
-    GPIO.output(pinMotorBBackwards, 0)
+    # GPIO.output(pinMotorAForwards, 0)
+    # GPIO.output(pinMotorABackwards, 1)
+    # GPIO.output(pinMotorBForwards, 1)
+    # GPIO.output(pinMotorBBackwards, 0)
+    pwmMotorAForwards.ChangeDutyCycle(Stop)
+    pwmMotorABackwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorBForwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorBBackwards.ChangeDutyCycle(Stop)
 
 # Turn Right
 def Right():
-    GPIO.output(pinMotorAForwards, 1)
-    GPIO.output(pinMotorABackwards, 0)
-    GPIO.output(pinMotorBForwards, 0)
-    GPIO.output(pinMotorBBackwards, 1)
+    # GPIO.output(pinMotorAForwards, 1)
+    # GPIO.output(pinMotorABackwards, 0)
+    # GPIO.output(pinMotorBForwards, 0)
+    # GPIO.output(pinMotorBBackwards, 1)
+    pwmMotorAForwards.ChangeDutyCycle(DutyCycle)
+    pwmMotorABackwards.ChangeDutyCycle(Stop)
+    pwmMotorBForwards.ChangeDutyCycle(Stop)
+    pwmMotorBBackwards.ChangeDutyCycle(DutyCycle)
 
 
 
