@@ -17,8 +17,8 @@ pinLineFollower = 25
 # How many times to turn the pin on and off each second
 Frequency = 20
 # How long the pin stays on each cycle, as a percent (here, it's 30%)
-DutyCycleA = 18
-DutyCycleB = 10
+DutyCycleA = 20
+DutyCycleB = 24
 # Setting the duty cycle to 0 means the motors will not turn
 Stop = 0
 
