@@ -15,7 +15,7 @@ pinMotorBBackwards = 7
 pinLineFollower = 25
 
 # How many times to turn the pin on and off each second
-Frequency = 150
+Frequency = 100
 # How long the pin stays on each cycle, as a percent (here, it's 30%)
 DutyCycleA = 25
 DutyCycleB = 25
