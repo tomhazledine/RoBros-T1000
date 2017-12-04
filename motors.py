@@ -96,36 +96,58 @@ def Right():
     pwmMotorBBackwards.ChangeDutyCycle(DutyCycleB * 0.8)
 
 
+while True:
+    Forwards()
+    time.sleep(2)
 
-# Forwards()
-# time.sleep(1)
+    Left()
+    time.sleep(0.5)
 
-# Left()
-# time.sleep(0.5)
+    Forwards()
+    time.sleep(1)
 
-# Right()
-# time.sleep(0.5)
+    Right()
+    time.sleep(0.5)
 
-# Backwards()
-# time.sleep(0.5)
+    Forwards()
+    time.sleep(2)
 
-# StopMotors()
+    StopMotors()
+    time.sleep(0.2)
+
+    Backwards()
+    time.sleep(0.5)
+
+    Right()
+    time.sleep(0.1)
+
+    Backwards()
+    time.sleep(0.5)
+
+    Left()
+    time.sleep(0.1)
+
+    Backwards()
+    time.sleep(2)
+
+    StopMotors()
+    time.sleep(5)
 
 # Reset the GPIO pins (turns off motors too)
-# GPIO.cleanup()
+GPIO.cleanup()
 
-try:
-    # Repeat:
-    while True:
-        # print(GPIO.input(pinLineFollower))
-        if GPIO.input(pinLineFollower)==0:
-            # StopMotors()
-            Left()
-            print('\r Scanning...')
-        else:
-            # StopMotors()
-            Forwards()
-        time.sleep(0.1)
+# try:
+#     # Repeat:
+#     while True:
+#         # print(GPIO.input(pinLineFollower))
+#         if GPIO.input(pinLineFollower)==0:
+#             # StopMotors()
+#             Left()
+#             print('\r Scanning...')
+#         else:
+#             # StopMotors()
+#             Forwards()
+#         time.sleep(0.1)
 
-except KeyboardInterrupt:
-    GPIO.cleanup()
+# except KeyboardInterrupt:
+#     GPIO.cleanup()
