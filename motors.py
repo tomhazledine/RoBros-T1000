@@ -17,8 +17,8 @@ pinLineFollower = 25
 # How many times to turn the pin on and off each second
 Frequency = 100
 # How long the pin stays on each cycle, as a percent (here, it's 30%)
-DutyCycleA = 25
-DutyCycleB = 25
+DutyCycleA = 28
+DutyCycleB = 28
 DutyCycleA_slow = 10
 DutyCycleB_slow = 10
 # Setting the duty cycle to 0 means the motors will not turn
@@ -125,7 +125,7 @@ try:
         else:
             # StopMotors()
             Forwards()
-        time.sleep(0.2)
+        time.sleep(0.1)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
