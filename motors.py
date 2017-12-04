@@ -142,9 +142,6 @@ while True:
     StopMotors()
     time.sleep(5)
 
-    # Reset the GPIO pins (turns off motors too)
-    GPIO.cleanup()
-
 # try:
 #     # Repeat:
 #     while True:
@@ -158,5 +155,5 @@ while True:
 #             Forwards()
 #         time.sleep(0.1)
 
-except KeyboardInterrupt:
-    GPIO.cleanup()
+# except KeyboardInterrupt:
+    # GPIO.cleanup()
