@@ -100,13 +100,25 @@ while True:
     Forwards()
     time.sleep(2)
 
+    StopMotors()
+    time.sleep(0.5)
+
     Left()
+    time.sleep(0.1)
+
+    StopMotors()
     time.sleep(0.5)
 
     Forwards()
-    time.sleep(1)
+    time.sleep(2)
+
+    StopMotors()
+    time.sleep(0.5)
 
     Right()
+    time.sleep(0.3)
+
+    StopMotors()
     time.sleep(0.5)
 
     Forwards()
@@ -127,14 +139,11 @@ while True:
     Left()
     time.sleep(0.1)
 
-    Backwards()
-    time.sleep(2)
-
     StopMotors()
     time.sleep(5)
 
-# Reset the GPIO pins (turns off motors too)
-GPIO.cleanup()
+    # Reset the GPIO pins (turns off motors too)
+    GPIO.cleanup()
 
 # try:
 #     # Repeat:
@@ -149,5 +158,5 @@ GPIO.cleanup()
 #             Forwards()
 #         time.sleep(0.1)
 
-# except KeyboardInterrupt:
-#     GPIO.cleanup()
+except KeyboardInterrupt:
+    GPIO.cleanup()
