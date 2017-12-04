@@ -80,8 +80,8 @@ def Left():
     # GPIO.output(pinMotorBForwards, 1)
     # GPIO.output(pinMotorBBackwards, 0)
     pwmMotorAForwards.ChangeDutyCycle(Stop)
-    pwmMotorABackwards.ChangeDutyCycle(DutyCycleA * 0.5)
-    pwmMotorBForwards.ChangeDutyCycle(DutyCycleB * 0.5)
+    pwmMotorABackwards.ChangeDutyCycle(DutyCycleA * 0.8)
+    pwmMotorBForwards.ChangeDutyCycle(DutyCycleB * 0.8)
     pwmMotorBBackwards.ChangeDutyCycle(Stop)
 
 # Turn Right
@@ -90,10 +90,10 @@ def Right():
     # GPIO.output(pinMotorABackwards, 0)
     # GPIO.output(pinMotorBForwards, 0)
     # GPIO.output(pinMotorBBackwards, 1)
-    pwmMotorAForwards.ChangeDutyCycle(DutyCycleA * 0.5)
+    pwmMotorAForwards.ChangeDutyCycle(DutyCycleA * 0.8)
     pwmMotorABackwards.ChangeDutyCycle(Stop)
     pwmMotorBForwards.ChangeDutyCycle(Stop)
-    pwmMotorBBackwards.ChangeDutyCycle(DutyCycleB * 0.5)
+    pwmMotorBBackwards.ChangeDutyCycle(DutyCycleB * 0.8)
 
 
 
